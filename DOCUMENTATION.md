@@ -41,7 +41,7 @@ graph TB
     end
     
     subgraph "AI & Intelligence"
-        GEMINI[Google Gemini AI]
+        OLLAMA[Ollama LLM]
         MULTI[Multi-Agent Orchestration]
         STREAM[Real-time Streaming]
     end
@@ -62,7 +62,7 @@ graph TB
     CORS --> API
     API --> MCP
     MCP --> AGENTS
-    AGENTS --> GEMINI
+    AGENTS --> OLLAMA
     AGENTS --> MULTI
     API --> MONGO
     API --> CACHE
@@ -88,12 +88,12 @@ graph TB
 - **FastAPI**: High-performance Python web framework
 - **Python 3.13.2**: Modern Python with advanced features
 - **MCP (Model Context Protocol)**: Agent orchestration framework
-- **Google Generative AI**: Advanced AI capabilities with Gemini models
+- **Ollama**: Local LLM capabilities with lama3:8b models
 - **MongoDB**: NoSQL database for flexible data storage
 - **Uvicorn**: ASGI server for production deployment
 
 #### **AI & Intelligence Stack**
-- **Google Gemini 1.5 Pro**: Large language model for analysis
+- **Ollama lama3:8b**: Local language model for analysis
 - **Multi-Agent System**: 18 specialized AI agents
 - **Real-time Streaming**: WebSocket-based live updates
 - **Rate Limiting**: Intelligent API quota management
@@ -208,7 +208,7 @@ sequenceDiagram
     participant API as FastAPI
     participant MCP as MCP Framework
     participant AGENTS as AI Agents
-    participant GEMINI as Gemini AI
+    participant OLLAMA as Ollama LLM
     participant DB as MongoDB
     
     USER->>UI: Submit business analysis request
@@ -216,20 +216,20 @@ sequenceDiagram
     API->>MCP: Initialize analysis workflow
     
     MCP->>AGENTS: Activate Business Trends Agent
-    AGENTS->>GEMINI: Analyze market trends
-    GEMINI-->>AGENTS: Market insights
+    AGENTS->>OLLAMA: Analyze market trends
+    OLLAMA-->>AGENTS: Market insights
     AGENTS->>DB: Store trends data
     
     MCP->>AGENTS: Activate Competitor Agent
-    AGENTS->>GEMINI: Analyze competitors
-    GEMINI-->>AGENTS: Competitor intelligence
+    AGENTS->>OLLAMA: Analyze competitors
+    OLLAMA-->>AGENTS: Competitor intelligence
     AGENTS->>DB: Store competitor data
     
     MCP->>AGENTS: Activate News Processor
     AGENTS->>External APIs: Fetch market news
     External APIs-->>AGENTS: News data
-    AGENTS->>GEMINI: Process news relevance
-    GEMINI-->>AGENTS: Processed insights
+    AGENTS->>OLLAMA: Process news relevance
+    OLLAMA-->>AGENTS: Processed insights
     
     MCP->>API: Compile analysis results
     API->>DB: Store final analysis
@@ -367,7 +367,7 @@ classDiagram
     }
     
     class BusinessTrendsAgent {
-        +gemini_client: GenerativeModel
+        +ollama_client: OllamaQwen3Client
         +analyze_trends(sector: str)
         +identify_opportunities()
         +generate_insights()
@@ -526,7 +526,7 @@ classDiagram
         +aggregate_results(results: List[Dict])
     }
     
-    class GeminiIntegration {
+    class OllamaIntegration {
         +model: GenerativeModel
         +api_key: string
         +rate_limiter: RateLimiter
@@ -573,7 +573,7 @@ classDiagram
     MCPTool <|-- CompetitorAgent
     MCPTool <|-- NewsProcessor
     AgentOrchestrator --> MCPTool
-    BaseAgent --> GeminiIntegration
+    BaseAgent --> OllamaIntegration
     BaseAgent --> RateLimiter
     BaseAgent --> DataProcessor
     CompetitorAgent --> WebScraper
@@ -607,7 +607,7 @@ graph TD
     end
     
     subgraph "Intelligence Layer"
-        GEMINI_AI[Gemini AI]
+        OLLAMA_AI[Ollama LLM]
         TREND_ANALYSIS[Trend Analysis]
         COMPETITOR_INTEL[Competitor Intelligence]
         NEWS_PROCESSING[News Processing]
@@ -636,12 +636,12 @@ graph TD
     MCP_ORCHESTRATOR --> AGENT_POOL
     AGENT_POOL --> AI_PROCESSING
     
-    AI_PROCESSING --> GEMINI_AI
+    AI_PROCESSING --> OLLAMA_AI
     AI_PROCESSING --> TREND_ANALYSIS
     AI_PROCESSING --> COMPETITOR_INTEL
     AI_PROCESSING --> NEWS_PROCESSING
     
-    GEMINI_AI --> MONGODB
+    OLLAMA_AI --> MONGODB
     TREND_ANALYSIS --> REDIS_CACHE
     COMPETITOR_INTEL --> FILE_STORAGE
     
@@ -771,7 +771,7 @@ graph TD
     end
     
     subgraph "External Integrations"
-        GEMINI_SERVICE[Gemini AI Service]
+        OLLAMA_SERVICE[Ollama AI Service]
         LINKEDIN_SERVICE[LinkedIn API]
         NEWS_APIS[News APIs]
         WEB_SCRAPER[Web Scraper]

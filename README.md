@@ -9,7 +9,7 @@ The OpportunityDetection platform is a modern web application that helps busines
 - **Frontend**: React 18, TypeScript
 - **Backend**: FastAPI with MCP-based agent system
 - **Database**: MongoDB for data persistence
-- **AI Integration**: Google Generative AI (Gemini) for intelligent analysis
+- **AI Integration**: Ollama with llama3:8b for local intelligent analysis
 - **Deployment**: Production-ready with comprehensive dependency management
 
 ## 📋 Prerequisites
@@ -23,8 +23,9 @@ Before setting up the project, ensure you have the following installed:
 
 ### Required API Keys
 
-1. **Google Generative AI API Key**
-   - Visit [Google AI Studio](https://makersuite.google.com/app/apikey)
+1. **Ollama Local LLM**
+   - Install Ollama from [ollama.ai](https://ollama.ai)
+   - Pull the llama3:8b model: `ollama pull llama3:8b`
    - Create a new API key
    - Keep it secure for environment configuration
 
@@ -87,8 +88,9 @@ Add the following configuration to `.env`:
 
 ```env
 # API Keys
-GOOGLE_API_KEY=your_google_generative_ai_api_key_here
-GEMINI_API_KEY=your_google_generative_ai_api_key_here
+# Ollama Configuration (no API key needed for local deployment)
+OLLAMA_BASE_URL=http://localhost:11434
+OLLAMA_MODEL llama3:8b
 
 # Database Configuration
 MONGODB_URL=mongodb://localhost:27017/opportunity_detection
@@ -137,13 +139,13 @@ uvicorn main:app --host localhost --port 8000 --reload
 
 The backend will be available at: **http://localhost:8000**
 
-### 3. Frontend Setup (Next.js)
+### 3. Frontend Setup (React.js)
 
-#### Option A: Using Talan-Front-main (Vite + React)
+#### Using frontend (Vite + React)
 
 ```bash
 # Navigate to Talan frontend
-cd ../OpportunityDetection/Talan-Front-main
+cd ../OpportunityDetection/frontend
 
 # Install dependencies
 npm install
@@ -153,20 +155,6 @@ npm run dev
 ```
 
 Frontend will be available at: **http://localhost:5173**
-
-#### Option B: Using opportuna-nextjs (Next.js 14)
-
-```bash
-# Navigate to Next.js frontend
-cd ../OpportunityDetection/opportuna-nextjs
-
-# Install dependencies
-npm install
-
-# Create environment file
-touch .env.local
-# On Windows: New-Item -Path ".env.local" -ItemType File
-```
 
 Add to `.env.local`:
 
@@ -208,7 +196,7 @@ npm run dev
 ### Accessing the Application
 
 - **Frontend (Talan)**: http://localhost:5173
-- **Frontend (Next.js)**: http://localhost:3000
+- **Frontend (React.js)**: http://localhost:3000
 - **Backend API**: http://localhost:8000
 - **API Documentation**: http://localhost:8000/docs
 - **Interactive API Explorer**: http://localhost:8000/redoc
@@ -219,7 +207,7 @@ npm run dev
 
 - **18 AI Agents**: Converted to MCP tools for modular analysis
 - **Multi-Agent Orchestration**: Coordinated market analysis workflows
-- **Google AI Integration**: Advanced AI capabilities with Gemini models
+- **Local AI Integration**: Advanced AI capabilities with Ollama (Qwen2.5:3b)
 - **MongoDB Integration**: Robust data persistence and retrieval
 - **Rate Limiting**: API quota management and optimization
 - **Real-time Streaming**: WebSocket support for live updates
@@ -263,4 +251,3 @@ npm run dev
 - Chart Analysis
 - LinkedIn Scraping
 - And 11 more specialized tools
-

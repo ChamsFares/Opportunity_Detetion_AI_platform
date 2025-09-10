@@ -18,7 +18,7 @@ The OpportunityDetection platform is built with a **React frontend** and **FastA
 #### **Backend (FastAPI + MCP)**
 - **Framework**: FastAPI with Python 3.13.2
 - **AI Orchestration**: MCP (Model Context Protocol) with 18 AI agents
-- **AI Provider**: Google Generative AI (Gemini 1.5 Pro)
+- **AI Provider**: Ollama with lama3:8b (Local LLM)
 - **Database**: MongoDB for flexible data storage
 - **Caching**: Redis for performance optimization
 - **Server**: Uvicorn ASGI server
@@ -53,7 +53,7 @@ graph TB
         MCP[MCP Framework]
         ORCHESTRATOR[Agent Orchestrator]
         AGENTS[18 AI Agents]
-        GEMINI[Google Gemini AI]
+        OLLAMA[Ollama LLM]
     end
     
     subgraph "💾 Data Layer"
@@ -75,7 +75,7 @@ graph TB
     ROUTES --> MCP
     MCP --> ORCHESTRATOR
     ORCHESTRATOR --> AGENTS
-    AGENTS --> GEMINI
+    AGENTS --> OLLAMA
     AGENTS --> LINKEDIN
     AGENTS --> NEWS
     AGENTS --> MARKET
@@ -141,7 +141,7 @@ sequenceDiagram
     participant 🚀 as FastAPI
     participant 🤖 as MCP System
     participant 🧠 as AI Agents
-    participant 🔮 as Gemini AI
+    participant 🔮 as Ollama LLM
     participant 💾 as MongoDB
     
     👤->>🖥️: Submit business analysis
@@ -203,7 +203,7 @@ classDiagram
     }
     
     class BusinessTrendsAgent {
-        +gemini_client: GenerativeModel
+        +ollama_client: OllamaQwen3Client
         +analyze_trends()
         +identify_opportunities()
     }
@@ -402,7 +402,7 @@ graph TD
     end
     
     subgraph "🌍 External APIs"
-        GEMINI[Google Gemini AI]
+        OLLAMA[Ollama LLM]
         LINKEDIN[LinkedIn API]
         NEWS_API[News APIs]
         SCRAPER[Web Scraper]
@@ -425,10 +425,10 @@ graph TD
     AGENT_MGR --> PDF
     AGENT_MGR --> MORE
     
-    BUSINESS --> GEMINI
+    BUSINESS --> OLLAMA
     COMPETITOR --> SCRAPER
     NEWS --> NEWS_API
-    CHART --> GEMINI
+    CHART --> OLLAMA
     
     ALL_SERVICES --> MONGO
     ALL_SERVICES --> CACHE
@@ -460,7 +460,7 @@ graph LR
     end
     
     subgraph "🧠 Intelligence"
-        GEMINI[Gemini AI]
+        OLLAMA[Ollama LLM]
         TRENDS[Trend Analysis]
         INTEL[Competitor Intel]
         NEWS_PROC[News Processing]
@@ -489,12 +489,12 @@ graph LR
     MCP --> AGENTS
     AGENTS --> AI
     
-    AI --> GEMINI
+    AI --> OLLAMA
     AI --> TRENDS
     AI --> INTEL
     AI --> NEWS_PROC
     
-    GEMINI --> MONGO
+    OLLAMA --> MONGO
     TRENDS --> REDIS
     INTEL --> FILE_STORE
     
@@ -558,7 +558,7 @@ graph TD
     end
     
     subgraph "🏗️ Application Layer"
-        REACT[React App (Vite)]
+        REACT[React App Vite]
         NGINX[Nginx Reverse Proxy]
         FASTAPI_CLUSTER[FastAPI Cluster]
     end
@@ -566,7 +566,7 @@ graph TD
     subgraph "🤖 AI Services"
         MCP_SERVICES[MCP Services]
         AGENT_POOL[AI Agent Pool]
-        GEMINI_API[Google Gemini API]
+        OLLAMA_API[Ollama LLM API]
     end
     
     subgraph "💾 Data Layer"
@@ -590,7 +590,7 @@ graph TD
     
     FASTAPI_CLUSTER --> MCP_SERVICES
     MCP_SERVICES --> AGENT_POOL
-    AGENT_POOL --> GEMINI_API
+    AGENT_POOL --> OLLAMA_API
     
     FASTAPI_CLUSTER --> MONGODB_CLUSTER
     FASTAPI_CLUSTER --> REDIS_CLUSTER
@@ -616,7 +616,7 @@ graph TD
 ### **Backend Capabilities**
 - 🚀 **High Performance**: FastAPI with async/await for concurrent processing
 - 🤖 **AI Orchestration**: MCP framework managing 18 specialized AI agents
-- 🧠 **Advanced AI**: Google Gemini 1.5 Pro for sophisticated analysis
+- 🧠 **Local AI**: Ollama with lama3:8b for sophisticated local analysis
 - 💾 **Flexible Storage**: MongoDB for complex data structures
 - ⚡ **Fast Caching**: Redis for sub-millisecond data access
 - 📡 **Real-time Streaming**: WebSocket support for live updates

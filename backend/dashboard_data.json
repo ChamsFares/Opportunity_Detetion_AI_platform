@@ -1,0 +1,169 @@
+{
+  "kpiData":[
+    {
+      "title":"Potentiel de revenus",
+      "value":"1.0M€",
+      "change":"+16%",
+      "icon":"TrendingUp",
+      "color":"blue",
+      "description":"Revenus supplémentaires identifiés"
+    },
+    {
+      "title":"ROI moyen",
+      "value":"343%",
+      "change":"+8%",
+      "icon":"Target",
+      "color":"emerald",
+      "description":"Retour sur investissement prévu"
+    },
+    {
+      "title":"Économies identifiées",
+      "value":"494K€",
+      "change":"+20%",
+      "icon":"DollarSign",
+      "color":"orange",
+      "description":"Coûts optimisables détectés"
+    },
+    {
+      "title":"Temps de retour",
+      "value":"12 mois",
+      "change":"-2 mois",
+      "icon":"Clock",
+      "color":"purple",
+      "description":"Délai de rentabilité estimé"
+    }
+  ],
+  "revenueData":[
+    {
+      "name":"Services core",
+      "value":350000,
+      "fill":"#3B82F6"
+    },
+    {
+      "name":"Services B2B",
+      "value":250000,
+      "fill":"#10B981"
+    },
+    {
+      "name":"Consulting",
+      "value":200000,
+      "fill":"#F59E0B"
+    },
+    {
+      "name":"Formation",
+      "value":120000,
+      "fill":"#8B5CF6"
+    },
+    {
+      "name":"Partenariats",
+      "value":80000,
+      "fill":"#EF4444"
+    }
+  ],
+  "profitabilityData":[
+    {
+      "month":"Jan",
+      "profit":14317
+    },
+    {
+      "month":"Fév",
+      "profit":15066
+    },
+    {
+      "month":"Mar",
+      "profit":13350
+    },
+    {
+      "month":"Avr",
+      "profit":16221
+    },
+    {
+      "month":"Mai",
+      "profit":18598
+    },
+    {
+      "month":"Juin",
+      "profit":18843
+    },
+    {
+      "month":"Juil",
+      "profit":19251
+    },
+    {
+      "month":"Août",
+      "profit":20913
+    },
+    {
+      "month":"Sep",
+      "profit":20764
+    },
+    {
+      "month":"Oct",
+      "profit":23907
+    },
+    {
+      "month":"Nov",
+      "profit":20879
+    },
+    {
+      "month":"Déc",
+      "profit":21891
+    }
+  ],
+  "roiActions":[
+    {
+      "action":"Optimisation SEO",
+      "roi":473,
+      "complexity":"Faible",
+      "impact":"Fort"
+    },
+    {
+      "action":"Automatisation marketing",
+      "roi":369,
+      "complexity":"Moyen",
+      "impact":"Fort"
+    },
+    {
+      "action":"Expansion géographique",
+      "roi":379,
+      "complexity":"Élevé",
+      "impact":"Fort"
+    },
+    {
+      "action":"Diversification produit",
+      "roi":272,
+      "complexity":"Élevé",
+      "impact":"Moyen"
+    },
+    {
+      "action":"Partenariats stratégiques",
+      "roi":255,
+      "complexity":"Moyen",
+      "impact":"Moyen"
+    }
+  ],
+  "metadata":{
+    "company":"tesla",
+    "sector":"manufacturing",
+    "service":"cars",
+    "generated_at":"2025-08-31T17:26:28.399775",
+    "data_quality":"high",
+    "source":"multi_agent_analysis"
+  },
+  "rawAnalysis":{
+    "market_gaps":[],
+    "market_opportunities":[],
+    "competitive_insights":{},
+    "trend_analysis":{},
+    "strategic_recommendations":[],
+    "risk_assessment":[],
+    "error":"Could not parse JSON from response",
+    "metadata":{
+      "analysis_timestamp":"2025-08-31T17:26:28.398899",
+      "company":"tesla",
+      "sector":"",
+      "service":"",
+      "analysis_successful":false
+    }
+  }
+}

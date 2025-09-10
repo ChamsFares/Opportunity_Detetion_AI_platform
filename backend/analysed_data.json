@@ -1,0 +1,16 @@
+{
+  "market_gaps": [],
+  "market_opportunities": [],
+  "competitive_insights": {},
+  "trend_analysis": {},
+  "strategic_recommendations": [],
+  "risk_assessment": [],
+  "error": "Could not parse JSON from response",
+  "metadata": {
+    "analysis_timestamp": "2025-08-31T17:26:28.398899",
+    "company": "tesla",
+    "sector": "",
+    "service": "",
+    "analysis_successful": false
+  }
+}
